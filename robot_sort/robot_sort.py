@@ -97,7 +97,51 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # if self.light_is_on == False:
+        #     if self.compare_item() == -1:
+        #         self.swap_item()
+        #     elif self.can_move_right():
+        #         self.move_right()
+        #     elif self.can_move_left():
+        #         self.set_light_on()
+        #     else:
+        #         return
+        # else:
+        #     if self.compare_item() == 1:
+        #         self.swap_item()
+        #     elif self.can_move_left():
+        #         self.move_left()
+        #     elif self.can_move_right():
+        #         self.set_light_off()
+        #     else:
+        #         return
+        # self.sort()
+        #I have given up on my recursive implementation so here's this iterative one instead:
+
+        #basically just a bubbly bubble sort.
+        self.swap_item()
+        self.set_light_off()
+        while not self.light_is_on():
+            self.set_light_on()
+            while(self.can_move_right()):
+                self.move_right()
+                if(self.compare_item() == 1):
+                    #this swap is to escape the switch that I do below when you are at the start of the list
+                    self.swap_item()
+                    self.set_light_off()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+            self.swap_item()
+            #escape
+            if(self.light_is_on() != False):
+                return
+            #move back to the next pair to sort
+            while(self.can_move_left()):
+                self.move_left()
+                self.set_light_off()
+            self.swap_item()
 
 
 if __name__ == "__main__":

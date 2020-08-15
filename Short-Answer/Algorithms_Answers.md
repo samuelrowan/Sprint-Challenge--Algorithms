@@ -2,14 +2,14 @@
 
 ## Exercise I
 
-a)
+a)linear
 
 
-b)
+b)exponential
 
 
-c)
+c)constant
 
 ## Exercise II
 
-
+Just use a merge sort.  Start in the middle then go to the middle again testing all the way through.
